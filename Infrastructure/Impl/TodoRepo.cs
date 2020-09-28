@@ -22,6 +22,7 @@ namespace Infrastructure.Impl
         public int DeleteTodo(Todo del)
         {
             var deleted = _ctx.Tasks.Remove(del).Entity;
+            _ctx.SaveChanges();
             return deleted.Id;
         }
 
